@@ -4,9 +4,8 @@
 // https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.07480&lng=72.88560&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 
 
-const masterData = [
+const masterData1 = [{
 
-{
   "statusCode": 0,
   "data": {
     "statusMessage": "done successfully",
@@ -7425,3 +7424,5 @@ const masterData = [
   "deviceId": "c7416f18-d0b7-65c8-0f2b-9376b28c9a7d",
   "csrfToken": "YUVUXB6dae1A-TICDCy8sKLpMvVlULFYxp9sjy3E"
 }]
+
+export default masterData;

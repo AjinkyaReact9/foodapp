@@ -1,4 +1,50 @@
+
+.textInput{
+  width: 30%;
+  border-radius: 5px;
+}
+
 .custom-card{
   width: 100%;
-  max-width: 210px;
+  max-width: 300px;
 }
+
+.carousel{
+  width: auto;
+}
+
+
+
+.name, .cuisines, .location{
+  overflow: hidden;
+    display: -webkit-box;
+    overflow-wrap: break-word;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+} 
+
+.cardOverflow{
+  overflow-x: auto;
+}
+
+
+.nameContainer, .cuisinesContainer, .locationContainer{
+  height: 15px;
+  background-color: rgb(235, 233, 233);
+}
+
+.thumbnail_container{
+  position: relative;
+}
+
+.thumbnail_container button{
+  position: absolute;
+  bottom: -20px;
+  left: 29%;
+  transform: translateX(-10 );
+  box-shadow: 0 3px 8px #e9e9eb;
+  border-radius: 4px;
+}
+
+
+
