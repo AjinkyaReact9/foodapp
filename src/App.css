@@ -46,5 +46,82 @@
   border-radius: 4px;
 }
 
+.Container-dark{
+  color: #fee;
+  text-shadow: 0 -40px 100px, 0 0 2px, 0 0 1em #ff4444, 0 0 0.5em #ff4444, 0 0 0.1em #ff4444, 0 10px 3px #000;
+}
+
+.Content-dark span {
+  animation: blink linear infinite 2s;
+}
+
+.Content-dark span:nth-of-type(2) {
+  animation: blink linear infinite 3s;
+}
+
+.lightSwitch {
+  display: flex;
+  height: 50px;
+  width: 15%;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes blink {
+  78% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+
+  79% {
+    color: #333;
+  }
+
+  80% {
+
+    text-shadow: none;
+  }
+
+  81% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+
+  82% {
+    color: #333;
+    text-shadow: none;
+  }
+
+  83% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+
+  92% {
+    color: #333;
+    text-shadow: none;
+  }
+
+  92.5% {
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+
+.lightSwitch img {
+  height: 50px;
+  width: auto;
+  position: absolute;
+  right: 500px;
+  margin-bottom: 10px;
+}
+
+.lightSwitch img:hover {
+  cursor: pointer;
+}
+
+.Container-light{
+  background-color: rgb(216, 216, 216);
+}
 
 

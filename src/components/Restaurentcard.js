@@ -1,5 +1,7 @@
 import { img_URl } from "../utils.js/config";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import userContext from "../utils.js/UserContext";
 
 const Restaurentcard = ({
   cloudinaryImageId,
@@ -10,6 +12,8 @@ const Restaurentcard = ({
   areaName,
   id
 }) => {
+  // const contextData = useContext(userContext);
+  // console.log("context Data", contextData);
   return (
     <div className="custom-card shadow-lg p-3 bg-body rounded mt-3">
       <Link
@@ -34,6 +38,7 @@ const Restaurentcard = ({
       </div>
       <div className="text-secondary cuisines">{cuisines.join(", ")}</div>
       <div className="text-secondary location">{areaName}</div>
+      {/* <div className="text-secondary location">Created by - {contextData.userName}</div> */}
     </div>
   );
 };

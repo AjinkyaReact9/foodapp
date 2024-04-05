@@ -5,10 +5,26 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import { Outlet } from 'react-router-dom';
 import Form from './components/Form';
+import { useEffect, useState } from 'react';
+import { ThemeProvider } from './utils.js/themeContext';
+import userContext from './utils.js/UserContext';
+
+
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState({})
+
+  useEffect(()=>{
+    const data = "Nashte"
+    setLoggedIn({
+      userName : data
+    })
+  }, [])
+  // const [{ theme, dark},toggle] = React.useContext(ThemeContext);
+  //   console.log("theme", { theme, dark},toggle);
   return (
-    <div className="App">
+    <userContext.Provider value={loggedIn}>
+      <div className="App">
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -23,12 +39,22 @@ function App() {
           Learn React
         </a>
       </header> */}
+      {/* <Form /> */}
+      <ThemeProvider>
       <Header />
+      </ThemeProvider>
       <Outlet/>
       <Footer />
-      {/* <Form /> */}
+      
     </div>
-  );
+    </userContext.Provider>
+    
+      
+    
+      
+  )
 }
 
 export default App;
+
+

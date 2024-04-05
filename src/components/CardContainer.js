@@ -1,17 +1,20 @@
 // import {data} from "../utils.js/config";
 import Restaurentcard from "./Restaurentcard";
 import Topcarousel from "./Topcarousels";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { img_URl } from "../utils.js/config";
-import { res_URL } from "../utils.js/config";
+// import { res_URL } from "../utils.js/config";
 import Shimmer from "../components/Shimmer";
 import useRestaurantList from "../utils.js/useRestaurantList";
+import Searchbar from "./Searchbar";
+import Filter from "./Filter";
+// import Searchbar from "./Searchbar";
 
 const CardContainer = () => {
   //rendering list
 
-  // const [restaurant, setRestaurant] = useState([]);
-  // const [filterData, setFilterData] = useState([]);
+  const [restaurant, setRestaurant] = useState([]);
+  const [filterData, setFilterData] = useState([]);
   // const [carouselData, setCarouselData] = useState([]);
   // const [carouselTitle, setCarouselTitle] = useState([]);
   // const [restaurantTitle, setRestaurantTitle] = useState([]);
@@ -48,20 +51,33 @@ const CardContainer = () => {
   //   }
   // };
 
-  const searchData = (e) => {
-    setSearchText(e.target.value);
-  };
+  // const searchData = (e) => {
+  //   setSearchText(e.target.value);
+  // };
 
-  const search = () => {
-    // console.log("restaurant", restaurant);
-    const filteredData = restaurantObject?.masterData.filter((resItem) =>
-      resItem?.info?.name.toLowerCase().includes(searchText.toLowerCase())
-    );
-    restaurantObject?.updaterRestaurant(filteredData)
-    // setRestaurant(filteredData);
-    console.log("filter", filteredData);
-  };
+  // const search = () => {
+  //   // console.log("restaurant", restaurant);
+  //   const filteredData = restaurantObject?.masterData.filter((resItem) =>
+  //     resItem?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+  //   );
+  //   restaurantObject?.updaterRestaurant(filteredData)
+  //   // setRestaurant(filteredData);
+  //   console.log("filter", filteredData);
+  // };
 
+    const searchData = (e) => {
+        setSearchText(e.target.value);
+    };
+
+    const search = () => {
+        // console.log("restaurant", restaurant);
+        const filteredData = restaurantObject?.masterData.filter((resItem) =>
+          resItem?.info?.name.toLowerCase().includes(searchText.toLowerCase())
+        );
+        // updater(filteredData)
+        setRestaurant(filteredData);
+        console.log("filter", filteredData);
+      };
   const searchRatings = () => {
     const filteredData = restaurantObject?.masterData.filter(
       (resItem) => resItem?.info?.avgRating > 4.5
@@ -72,7 +88,7 @@ const CardContainer = () => {
     } else {
       setActiveCategory("ratings");
       restaurantObject?.updaterRestaurant(filteredData)
-      // setRestaurant(filteredData);
+      setRestaurant(filteredData);
       console.log("ratings", filteredData);
     }
   };
@@ -87,7 +103,7 @@ const CardContainer = () => {
     } else {
       setActiveCategory("deliveryTime");
       restaurantObject?.updaterRestaurant(filteredData)
-      // setRestaurant(filteredData);
+      setRestaurant(filteredData);
       console.log("delivery", filteredData);
     }
   };
@@ -120,23 +136,30 @@ const CardContainer = () => {
     <>
       <div className="container">
         <div className="container d-flex mt-3 search">
-          <input
+          {/* <input
             className="textInput"
             type="text"
             value={searchText}
             onChange={searchData}
-          />
-          <button className="btn btn-dark mx-1" onClick={search}>
+          /> */}
+          {/* <button className="btn btn-dark mx-1" onClick={search}>
             Search
-          </button>
-          <button
+          </button> */}
+          <Searchbar collection={restaurantObject?.masterData} />
+          {/* <button
             className="btn btn-dark mx-1"
             style={{ backgroundColor: category === "ratings" ? "green" : "" }}
             onClick={searchRatings}
           >
             Ratings 4.5+
-          </button>
-          <button
+          </button> */}
+          <Filter 
+          Ratings={searchRatings} 
+          category={category} 
+          DeliveryTime={searchDeliveryTime}
+          PureVeg={searchPureVeg}
+          Reset={searchReset}/>
+          {/* <button
             className="btn btn-dark mx-1"
             style={{
               backgroundColor: category === "deliveryTime" ? "green" : "",
@@ -144,19 +167,19 @@ const CardContainer = () => {
             onClick={searchDeliveryTime}
           >
             Fast Delivery
-          </button>
-          <button
+          </button> */}
+          {/* <button
             className="btn btn-dark mx-1"
             style={{ backgroundColor: category === "pureVeg" ? "green" : "" }}
             onClick={searchPureVeg}
           >
             Pure Veg
-          </button>
-          {category && (
+          </button> */}
+          {/* {category && (
             <button className="btn btn-dark mx-1" onClick={searchReset}>
               Reset
             </button>
-          )}
+          )} */}
         </div>
         <div>
         <h2 className="container carousel-title mt-5">{restaurantObject?.carouselTitle}</h2>
@@ -170,7 +193,7 @@ const CardContainer = () => {
             );
           })}
         </div>
-        </div>
+      </div>
 
         <h2 className="container mt-5 title">{restaurantObject?.restaurantTitle}</h2>
         <div className="container d-flex flex-wrap justify-content-between gap-3 mt-4">

@@ -5,3 +5,7 @@ export const res_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.0
 
 export const menuListUrl =
 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/";
+
+export const imgDark = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi0CO1OvKtzenGecRXXsvn__b7Md7_NyGelw&s";
+
+export const imgLight = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8MJJGX3fqNXwAjtpWHECZkGE6nvWBQ6BDaQ&s"

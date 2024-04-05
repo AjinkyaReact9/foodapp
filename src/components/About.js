@@ -1,13 +1,26 @@
+import { Component } from "react";
+import userContext from "../utils.js/UserContext";
 
 
-import React from 'react'
+class About extends Component {
+  constructor() {
+    super()
+    console.log("Parent constructor called");
+  }
 
-const About = () => {
-  return (
-    <div>
-      This is an about component
-    </div>
-  )
+  render(){
+    console.log("Parent render called");
+    return(
+      <div className="container">
+        This is a About us Component : (Class Based ) Created By - <span>{}</span>
+      
+      <userContext.Consumer>
+        {(data) => <span>{data?.userName}</span>}
+      </userContext.Consumer>
+      </div>
+    )
+  }
 }
+
 
 export default About;

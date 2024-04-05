@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import Shimmer from "./Shimmer";
-import { menuListUrl } from "../utils.js/config";
+// import { menuListUrl } from "../utils.js/config";
 import useMenuList from "../utils.js/useMenuList";
 import MenuHeader from "./MenuHeader";
 import NormalMenu from "./NormalMenu";
@@ -12,7 +12,7 @@ const Menu = () => {
   const { resId } = searchParams;
   const menuList = useMenuList(resId);
   const [activeIndex, setActiveIndex] = useState(-1)
-  const menuData = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`;
+  // const menuData = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=19.07480&lng=72.88560&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`;
 
   if (menuList.length === 0) {
     return (
@@ -22,7 +22,7 @@ const Menu = () => {
     );
   } else {
     console.log("datadadtadt", menuList[2]);
-    const {name, cuisines, areaName, sla, feeDetails, avgRating, totalRatingsString} = menuList[2].card?.card?.info;
+    // const {name, cuisines, areaName, sla, feeDetails, avgRating, totalRatingsString} = menuList[2].card?.card?.info;
     // const { itemCards } = menuList[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
     const filteredData =
       menuList[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(

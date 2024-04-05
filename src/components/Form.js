@@ -1,40 +1,29 @@
-import React, { useState } from 'react'
+import { useState } from "react";
+
 
 const Form = () => {
-    const [name, setName] = useState("");
-    const [data, setcontact] = useState("");
+    const [userName, setUserName] = useState("");
+    const [userNumber, setUserNumber] = useState("");
 
-    const setName1 = (e) => {
-        e.preventDefault();
-       setName(
-        e.target.value
-       )
+    const data = (e) => {
+        setUserName(e.target.value)
     }
 
-    const setName2 = (e) => {
-        e.preventDefault();
-        setcontact(
-        e.target.value
-       )
+    const number = (e) =>{
+        setUserNumber(e.target.value)
     }
 
-    // const setData1 = () => {
-    //     setData(
-    //         console.log(data, "")
-    //     )
-        
-    // }
-    
+    const submitedData = () => {
+        console.log("data", userName, userNumber);
+    }
+
     return (
-    <div className='mt-3'>
-    <input type='text' onChange={setName1} name='name' placeholder='username' value={name}/>
-    <input type='number' name='contact' placeholder='contact' onChange={setName2} value={data}/>
-    <button onClick={() => {
-        console.log( name, data, "" + "");
-        
-    }} className='btn btn-success'>Subject</button>
-    </div>
-  )
+        <div>
+                <input type="text" placeholder="username" value={userName} onChange={data}/>
+                <input type="number" placeholder="enter number" value={userNumber} onChange={number}/>
+                <button className="btn btn-primary" onClick={submitedData}>Submit</button>
+        </div>
+    )
 }
 
 export default Form;
